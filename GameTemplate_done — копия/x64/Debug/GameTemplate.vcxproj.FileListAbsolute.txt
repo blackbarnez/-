@@ -1,0 +1,3 @@
+C:\Users\root01\Desktop\тестовое в магу\GameTemplate\GameTemplate\x64\Debug\GameTemplate.exe
+C:\Users\root01\Desktop\GameTemplate_done\x64\Debug\GameTemplate.exe
+C:\Users\root01\Desktop\GameTemplate_done — копия\x64\Debug\GameTemplate.exe

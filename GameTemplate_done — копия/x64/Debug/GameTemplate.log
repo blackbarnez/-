@@ -1,0 +1,12 @@
+﻿  Engine.cpp
+  Game.cpp
+C:\Users\root01\Desktop\GameTemplate_done — копия\Game.cpp(70,19): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\root01\Desktop\GameTemplate_done — копия\Game.cpp(71,19): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\root01\Desktop\GameTemplate_done — копия\Game.cpp(251,57): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\root01\Desktop\GameTemplate_done — копия\Game.cpp(255,61): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\root01\Desktop\GameTemplate_done — копия\Game.cpp(288,19): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\root01\Desktop\GameTemplate_done — копия\Game.cpp(289,19): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\root01\Desktop\GameTemplate_done — копия\Game.cpp(403,38): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\root01\Desktop\GameTemplate_done — копия\Game.cpp(403,32): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+  Создание кода...
+  GameTemplate.vcxproj -> C:\Users\root01\Desktop\GameTemplate_done — копия\x64\Debug\GameTemplate.exe
