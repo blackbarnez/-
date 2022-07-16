@@ -10,7 +10,6 @@
 #include <stdio.h>
 
 #include <string> 
-#include <vector>
 
 //
 //  You are free to modify this file
@@ -41,6 +40,20 @@ public:
         xCircle = 0;
         yCircle = 0;
         colorCircle = 2000;
+    }
+
+    void draw() {
+
+        for (int j = rCircle; j >= rCircle - 5; j--) {
+            for (int i = 0; i < 360; i++) {
+
+                double a = i * M_PI / 180;
+                int x = j * cos(a);
+                int y = j * sin(a);
+                buffer[x + SCREEN_HEIGHT / 2][y + SCREEN_WIDTH / 2] = colorCircle;
+
+            }
+        }
     }
 
 };
@@ -149,82 +162,88 @@ static int dirFriend = 0;
 
 void collision(Player player, Enemy enemy, Enemy friend1) {
 
+    int xE = enemy.xEnemy;
+    int yE = enemy.yEnemy;
+
+    int xF = friend1.xEnemy;
+    int yF = friend1.yEnemy;
+
     for (int j = 0; j < enemy.pEnemy; j++) {
-        enemy.xEnemy++;
-        friend1.xEnemy++;
-        if (player.xPlayer == enemy.xEnemy && player.yPlayer == enemy.yEnemy) {
+        xE++;
+        xF++;
+        if (player.xPlayer == xE && player.yPlayer == yE) {
             flagChances = 1;
             flagEnemy = 1;
         }
-        if (player.xPlayer == friend1.xEnemy && player.yPlayer == friend1.yEnemy) {
+        if (player.xPlayer == xF && player.yPlayer == yF) {
             flagScore = 1;
             flagFriend = 1;
         }
-        if (player.xPlayer2 == enemy.xEnemy && player.yPlayer2 == enemy.yEnemy) {
+        if (player.xPlayer2 == xE && player.yPlayer2 == yE) {
             flagChances = 1;
             flagEnemy = 1;
         }
-        if (player.xPlayer2 == friend1.xEnemy && player.yPlayer2 == friend1.yEnemy) {
+        if (player.xPlayer2 == xF && player.yPlayer2 == yF) {
             flagScore = 1;
             flagFriend = 1;
         }
     }
     for (int j = 0; j < enemy.pEnemy; j++) {
-        enemy.yEnemy++;
-        friend1.yEnemy++;
-        if (player.xPlayer == enemy.xEnemy && player.yPlayer == enemy.yEnemy) {
+        yE++;
+        yF++;
+        if (player.xPlayer == xE && player.yPlayer == yE) {
             flagChances = 1;
             flagEnemy = 1;
         }
-        if (player.xPlayer == friend1.xEnemy && player.yPlayer == friend1.yEnemy) {
+        if (player.xPlayer == xF && player.yPlayer == yF) {
             flagScore = 1;
             flagFriend = 1;
         }
-        if (player.xPlayer2 == enemy.xEnemy && player.yPlayer2 == enemy.yEnemy) {
+        if (player.xPlayer2 == xE && player.yPlayer2 == yE) {
             flagChances = 1;
             flagEnemy = 1;
         }
-        if (player.xPlayer2 == friend1.xEnemy && player.yPlayer2 == friend1.yEnemy) {
-            flagScore = 1;
-            flagFriend = 1;
-        }
-    }
-    for (int j = 0; j < enemy.pEnemy; j++) {
-        enemy.xEnemy--;
-        friend1.xEnemy--;
-        if (player.xPlayer == enemy.xEnemy && player.yPlayer == enemy.yEnemy) {
-            flagChances = 1;
-            flagEnemy = 1;
-        }
-        if (player.xPlayer == friend1.xEnemy && player.yPlayer == friend1.yEnemy) {
-            flagScore = 1;
-            flagFriend = 1;
-        }
-        if (player.xPlayer2 == enemy.xEnemy && player.yPlayer2 == enemy.yEnemy) {
-            flagChances = 1;
-            flagEnemy = 1;
-        }
-        if (player.xPlayer2 == friend1.xEnemy && player.yPlayer2 == friend1.yEnemy) {
+        if (player.xPlayer2 == xF && player.yPlayer2 == yF) {
             flagScore = 1;
             flagFriend = 1;
         }
     }
     for (int j = 0; j < enemy.pEnemy; j++) {
-        enemy.yEnemy--;
-        friend1.yEnemy--;
-        if (player.xPlayer == enemy.xEnemy && player.yPlayer == enemy.yEnemy--) {
+        xE--;
+        xF--;
+        if (player.xPlayer == xE && player.yPlayer == yE) {
             flagChances = 1;
             flagEnemy = 1;
         }
-        if (player.xPlayer == friend1.xEnemy && player.yPlayer == friend1.yEnemy--) {
+        if (player.xPlayer == xF && player.yPlayer == yF) {
             flagScore = 1;
             flagFriend = 1;
         }
-        if (player.xPlayer2 == enemy.xEnemy && player.yPlayer2 == enemy.yEnemy--) {
+        if (player.xPlayer2 == xE && player.yPlayer2 == yE) {
             flagChances = 1;
             flagEnemy = 1;
         }
-        if (player.xPlayer2 == friend1.xEnemy && player.yPlayer2 == friend1.yEnemy--) {
+        if (player.xPlayer2 == xF && player.yPlayer2 == yF) {
+            flagScore = 1;
+            flagFriend = 1;
+        }
+    }
+    for (int j = 0; j < enemy.pEnemy; j++) {
+        yE--;
+        yF--;
+        if (player.xPlayer == xE && player.yPlayer == yE) {
+            flagChances = 1;
+            flagEnemy = 1;
+        }
+        if (player.xPlayer == xF && player.yPlayer == yF) {
+            flagScore = 1;
+            flagFriend = 1;
+        }
+        if (player.xPlayer2 == xE && player.yPlayer2 == yE) {
+            flagChances = 1;
+            flagEnemy = 1;
+        }
+        if (player.xPlayer2 == xF && player.yPlayer2 == yF) {
             flagScore = 1;
             flagFriend = 1;
         }
@@ -281,17 +300,7 @@ void draw()
 {
     memset(buffer, 0, SCREEN_HEIGHT * SCREEN_WIDTH * sizeof(uint32_t));
 
-    for (int j = circle.rCircle; j >= circle.rCircle - 5; j--) {
-        for (int i = 0; i < 360; i++) {
-
-            double a = i * M_PI / 180;
-            int x = j * cos(a);
-            int y = j * sin(a);
-            buffer[x + SCREEN_HEIGHT / 2][y + SCREEN_WIDTH / 2] = circle.colorCircle;
-
-        }
-    }
-
+    circle.draw();
 
     aPlayer = thetic * 0.5 * M_PI / 180;
 
